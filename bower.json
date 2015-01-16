@@ -1,0 +1,32 @@
+{
+  "name": "desirae-datamap-ruhoh",
+  "version": "1.0.0",
+  "homepage": "https://github.com/DearDesi/datamap-ruhoh",
+  "authors": [
+    "AJ ONeal <awesome@coolaj86.com>"
+  ],
+  "description": "A ruhoh datamap plugin for desirae",
+  "main": "datamapper-ruhoh.js",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "ruhoh",
+    "desirae",
+    "desi",
+    "deardesi",
+    "datamap"
+  ],
+  "license": "Apache2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mustache": "~1.0.0"
+  }
+}
