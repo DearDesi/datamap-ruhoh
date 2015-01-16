@@ -7,6 +7,22 @@
 
   function map(view) {
     var newview
+      , analytics
+      , comments
+      ;
+
+    comments = view.site.disqus_shortname &&
+      Mustache.render(view.desi.partials.disqus, { disqus: {
+        shortname: view.site.disqus_shortname
+      , identifier: view.entity.disqus_identifier || undefined
+      , url: !view.entity.disqus_identifier && view.entity.disqus_url || undefined
+      }})
+      ;
+
+    analytics = view.site.google_analytics_tracking_id && 
+      Mustache.render(view.desi.partials.google_analytics, { google_analytics: {
+        tracking_id: view.site.google_analytics_tracking_id
+      }})
       ;
 
     newview = {
@@ -46,18 +62,12 @@
       , title: view.site.title
       }
     , styles: view.desi.styles.join('\n')
-    , assets: view.desi.styles.join('\n') // ruhoh-twitter
+    , assets: view.desi.styles.join('\n')                   // ruhoh-twitter only
+    , comments: comments                                    // ruhoh-twitter only
+    , analytics: analytics                                  // ruhoh-twitter only
     , widgets: {
-        comments: view.site.disqus_shortname &&
-          Mustache.render(view.desi.partials.disqus, { disqus: {
-            shortname: view.site.disqus_shortname
-          , identifier: view.entity.disqus_identifier || undefined
-          , url: !view.entity.disqus_identifier && view.entity.disqus_url || undefined
-          }})
-      , analytics: view.site.google_analytics_tracking_id && 
-          Mustache.render(view.desi.partials.google_analytics, { google_analytics: {
-            tracking_id: view.site.google_analytics_tracking_id
-          }})
+        comments: comments
+      , analytics: analytics
       , facebook_connect: view.desi.partials.facebook_connect
       , twitter: view.desi.partials.twitter
       , google_plusone: view.desi.partials.google_plusone
@@ -86,6 +96,11 @@
 
     return newview;
   }
+
+  // shoulda made this an object at the start... oops
+  map.ruhoh = map;
+  map['ruhoh@1.0'] = map;
+  map['ruhoh@2.6'] = map;
 
   exports.DesiraeDatamapRuhoh = map.DesiraeDatamapRuhoh = map;
 }('undefined' !== typeof exports && exports || window));
