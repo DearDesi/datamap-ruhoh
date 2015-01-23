@@ -61,6 +61,13 @@
         }
       , title: view.site.title
       }
+    , 'stylesheets.load': function () {
+        return function (text, render) {
+          // TODO pay attention to text of which styles to load?
+          // this is unescaped, right?
+          render(view.desi.styles.join('\n'));
+        };
+      }
     , styles: view.desi.styles.join('\n')
     , assets: view.desi.styles.join('\n')                   // ruhoh-twitter only
     , comments: comments                                    // ruhoh-twitter only
