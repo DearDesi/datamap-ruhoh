@@ -50,9 +50,9 @@
     , posts: { collated: view.desi.collated }
     , urls: {
         base_url: view.env.base_url
-        // /something -> good (leading slash)
-        // / -> bad (trailing slash)
-      , base_path: view.env.base_path.replace(/^\/$/, '')
+        // /something/ -> good (leading and trailing slash)
+        // / -> bad good (leading and trailing slash)
+      , base_path: (view.env.base_path + '/').replace('//', '/')
       }
     , data: {
         author: {
