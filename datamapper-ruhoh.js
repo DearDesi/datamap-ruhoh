@@ -40,6 +40,7 @@
       , next: view.entities[view.entity_index + 1]
       , previous: view.entities[view.entity_index - 1]
       , date: view.entity.year + '-' + view.entity.month + '-' + view.entity.day
+      , url: view.entity.relative_link
       // TODO , url: view.entities.
       }
     , 'page?previous': view.entities[view.entity_index - 1] // ruhoh-twitter only
@@ -60,12 +61,12 @@
         , twitter: view.author.twitter
         }
       , title: view.site.title
+      , host: view.env.base_url.replace(/^https?:\/\//, '')
       }
     , stylesheets: { 'load': function () {
         return function (text, render) {
           // TODO pay attention to text of which styles to load?
           // this is unescaped, right?
-          console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ magicstache');
           return render(view.desi.styles.join('\n'));
         };
       }}
