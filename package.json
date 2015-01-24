@@ -1,6 +1,6 @@
 {
   "name": "desirae-datamap-ruhoh",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A ruhoh datamap plugin for desirae",
   "main": "datamapper-ruhoh.js",
   "scripts": {
