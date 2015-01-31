@@ -9,6 +9,7 @@
     var newview
       , analytics
       , comments
+      , desi = {}
       ;
 
     comments = view.site.disqus_shortname &&
@@ -25,8 +26,17 @@
       }})
       ;
 
+    Object.keys(view).forEach(function (key) {
+      desi[key] = view[key];
+    });
+    desi.desi = {};
+    Object.keys(view).forEach(function (key) {
+      desi.desi[key] = view[key];
+    });
+
     newview = {
-      content: view.contents
+      desi: desi
+    , content: view.contents
     , page: {
         title: view.entity.yml.title || view.site.title     // in rt
       , tagline: view.entity.yml.tagline                    // in rt
