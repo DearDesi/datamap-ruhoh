@@ -1,3 +1,7 @@
+# Moved
+
+Now at <https://git.coolaj86.com/coolaj86/desirae-datamap-ruhoh.js>
+
 # datamap-ruhoh
 
 A ruhoh-compatible data mapper for [desirae](http://dear.desi)
